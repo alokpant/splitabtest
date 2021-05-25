@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @ab_test = ab_test(:view, 'standard', 'control', 'variant')
+    @ab_test_name = "view_#{params[:id]}"
+    @ab_test = ab_test(@ab_test_name, 'standard', 'control', 'variant')
 
     render 'show'
   end
